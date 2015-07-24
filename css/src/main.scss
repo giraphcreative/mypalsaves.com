@@ -2,10 +2,11 @@
 
 // color variables
 $grey: #414042;
-$blue: #214099;
-$teal: #1F7FC3;
+$blue: #0569B2;
+$blue-dark: #214099;
+$teal: #27AAE1;
 $green: #66BD5A;
-$lime: #CADD65;
+$lime: #8DC63F;
 
 
 @import "reset";
@@ -35,10 +36,36 @@ $lime: #CADD65;
 header {
 	position: relative;
 	background: $blue url(../img/bg-header.jpg) top center repeat-x;
+	background-size: cover;
 	text-align: center;
 
 	img {
 		display: block;
+	}
+	
+	.wrap {
+		height: 250px;
+
+		.header {
+			background-color: white;
+			border: 8px solid $blue;
+			box-shadow: 5px 5px 15px rgba( 0, 0, 0, .5 );
+			width: 220px;
+			position: absolute;
+			bottom: -20px;
+			left: 50%;
+			margin-left: -110px;
+
+			@include respond-to( 600px ) {
+				left: 30px;
+				margin-left: 0;
+				width: 300px;
+			}
+		}
+
+		@include respond-to( 600px ) {
+			height: 500px;
+		}
 	}
 }
 
@@ -53,18 +80,38 @@ header {
 
 
 
+// main content container
+.main {
+	background: $blue url(../img/bg-overlay.png) top center repeat-y;
+	background-size: contain;
+}
+
+
+
 // padding div that'll resize for larger screens.
 .pad {
 	padding: 30px 20px;
+}
 
-	@include respond-to( 768px ) { padding: 30px 50px; }
-	@include respond-to( 1025px ) { padding: 40px 70px; }
+
+
+// intro styles
+.intro {	
+	.thermometer {
+		float: right;
+		margin-left: 20px;
+	}
+	
+	@include font-title-light;
+	font-size: 1.6em;
+	line-height: 1.7em;
 }
 
 
 
 // colors
 .bg-blue { background: $blue; }
+.bg-blue-dark { background: $blue-dark; }
 .bg-teal { background: $teal; }
 .bg-green { background: $green; }
 .bg-lime { background: $lime; }
@@ -74,14 +121,13 @@ header {
 // tool styles
 .tool {
 	padding: 0;
-	text-align: center;
+	color: white;
 	
 	@include respond-to( 768px ) {
 		padding: 20px 40px;
 	}
 
 	.calculator {
-		color: white;
 		padding: 10px 15px 10px;
 		@include font-title;
 
@@ -109,6 +155,7 @@ header {
 	display: none;
 	text-align: center;
 	@extend .pad;
+	color: white;
 
 	// large title
 	h2 {
@@ -140,8 +187,8 @@ header {
 input[type=submit], button, .btn {
 	@include font-title;
 	padding: 15px;
-	background: $green;
-	color: white;
+	background: $lime;
+	color: $blue-dark;
 	border: 0;
 	border-radius: 10px;
 	font-size: 2em;
@@ -153,11 +200,9 @@ input[type=submit], button, .btn {
 	text-align: center;
 	position: relative;
 	margin: 10px auto;
-	box-shadow: 3px 3px 25px lighten( $grey, 35% );
 
 	span {
 		display: block;
-		font-size: 1.4em;
 	}
 	
 	&:after {
@@ -172,17 +217,12 @@ input[type=submit], button, .btn {
 
 	&:hover {
 		opacity: .9;
-		color: white;
 	}
 
 	&.go-back {
 		background: lighten( $grey, 20% );
 		font-size: 1.5em;
 		color: white;
-	}
-
-	&.calculate, &.apply {
-		background: $green url(../img/bg-button-gradient.png) bottom center repeat-x;
 	}
 
 	@include respond-to( 768px ) {
@@ -195,21 +235,20 @@ input[type=submit], button, .btn {
 
 // footer styles
 .footer-bar {
-	background: $blue;
 	padding: 20px;
 	text-align: center;
 
 	&, a {
-		color: white;
+		color: $grey;
 	}
 
-	h2, h3 {
+	h2 {
 		@include font;
 	}
 
-	h2, a {
+	h2 {
 		font-size: 2.4em;
-		line-height: 50px;
+		line-height: 100px;
 		text-transform: uppercase;
 	}
 
@@ -222,23 +261,14 @@ input[type=submit], button, .btn {
 		text-align: center;
 	}
 
-	@include respond-to( 768px ) {
-		margin-top: 30px;
-	}
-
-	.half.separator {
-		@include respond-to( 768px ) {
-			width: 46.5%;
-		}
-	}
 }
 
 
 
 .fine-print {
 	background: white;
-	padding: 20px 0 0;
-	font-size: .85em;
+	padding: 0 20px;
+	font-size: .8em;
 	line-height: 1.3em;
 	text-align: left;
 
