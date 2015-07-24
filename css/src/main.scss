@@ -7,6 +7,7 @@ $blue-dark: #214099;
 $teal: #27AAE1;
 $green: #66BD5A;
 $lime: #8DC63F;
+$yellow: #FFF200;
 
 
 @import "reset";
@@ -161,6 +162,7 @@ header {
 	h2 {
 		@include font;
 		font-size: 1.8em;
+		color: $yellow;
 
 		@include respond-to( 768px ) {
 			font-size: 3em;
@@ -226,7 +228,7 @@ input[type=submit], button, .btn {
 	}
 
 	@include respond-to( 768px ) {
-		max-width: 40%;
+		max-width: 50%;
 		margin: 30px auto;
 	}
 }
