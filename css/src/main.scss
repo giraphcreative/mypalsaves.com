@@ -81,6 +81,23 @@ header {
 
 
 
+// top border
+.top-border {
+	background: $lime url(../img/bg-overlay.png) top center no-repeat;
+	background-size: cover;
+	height: 35px;
+
+	@include respond-to( 600px ) {
+		height: 45px;
+	}
+
+	@include respond-to( 900px ) {
+		height: 55px;
+	}
+}
+
+
+
 // main content container
 .main {
 	background: $blue url(../img/bg-overlay.png) top center repeat-y;
