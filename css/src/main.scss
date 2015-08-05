@@ -45,7 +45,11 @@ header {
 	}
 	
 	.wrap {
-		height: 250px;
+		height: 300px;
+
+		.icon {
+			margin-left: 30px;
+		}
 
 		.header {
 			background-color: white;
@@ -65,7 +69,7 @@ header {
 		}
 
 		@include respond-to( 600px ) {
-			height: 500px;
+			height: 400px;
 		}
 	}
 }
@@ -114,10 +118,16 @@ header {
 
 
 // intro styles
-.intro {	
+.intro {
 	.thermometer {
-		float: right;
-		margin-left: 20px;
+		margin: 0 auto;
+	}
+
+	@include respond-to( 500px ) {
+		.thermometer {
+			float: right;
+			margin: 0 0 0 20px;
+		}
 	}
 	
 	@include font-title-light;
